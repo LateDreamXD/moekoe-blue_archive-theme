@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/@latedream/moekoe-plugin-utils/schema/lkp_utils.json",
+  "manifest": {
+    "outpath": "dist/manifest.json"
+  },
+  "meta": {
+    "permissions": ["scripting"],
+    "injects": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.iife.js"],
+        "run_at": "document_end"
+      }
+    ],
+    "background": "background.iife.js",
+    "popup": {
+      "html": "popup.html",
+      "icon": "icon.png",
+      "title": "popup"
+    },
+    "icons": {
+      "768": "icon.png"
+    },
+    "generator": "moekoe-plugin-template-ts"
+  }
+}
