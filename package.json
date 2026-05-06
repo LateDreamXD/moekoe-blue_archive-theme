@@ -1,20 +1,34 @@
 {
-  "name": "moekoe-plugin-template-ts",
+  "name": "moekoe-blue_archive-theme",
   "type": "module",
   "private": true,
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "The sky blue archive✨",
   "scripts": {
-    "build": "tsdown",
+    "dev": "vite",
+    "build": "npm run build:js && npm run build:css && npm run build:web",
+    "build:js": "tsdown",
+    "build:css": "node bin/buildCSS.js",
+    "build:web": "vite build",
     "postbuild": "utils gen-manifest"
   },
-  "author": "",
-  "license": "",
+  "author": {
+    "name": "晚梦",
+    "url": "https://github.com/LateDreamXD"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@latedream/moekoe-plugin-utils": "1.0.0-beta.2",
     "@types/node": "^25.5.0",
+    "@vitejs/plugin-vue": "^6.0.6",
     "chrome-types": "^0.1.425",
+    "sass-embedded": "^1.99.0",
     "tsdown": "^0.21.7",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.2",
+    "vite": "^8.0.10"
+  },
+  "dependencies": {
+    "vue": "^3.5.33",
+    "vue-ba-spark": "^0.1.1"
   }
 }

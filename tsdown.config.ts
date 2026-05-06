@@ -4,23 +4,20 @@ const shared: import('tsdown').UserConfig = {
 	minify: true,
 	dts: false,
 	format: 'iife',
-	platform: 'browser'
+	platform: 'browser',
+	deps: {
+		alwaysBundle: ['vue', 'vue-ba-spark']
+	}
 }
 
 export default defineConfig([
 	{
 		copy: {
-			from: 'public/**/*',
-			to: 'dist'
+			from: 'public/assets/',
+			to: 'dist/'
 		},
 		entry: {
 			content: 'src/content/index.ts'
-		},
-		...shared
-	},
-	{
-		entry: {
-			background: 'src/background/index.ts'
 		},
 		...shared
 	}

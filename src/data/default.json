@@ -1,0 +1,18 @@
+{
+  "appearance": {
+    "wallpaper": "arona.jpg",
+    "customFonts": true,
+    "clickEffect": {
+      "enable": true,
+      "config": {}
+    },
+    "autoHidePlayer": true,
+    "verticalTab": true,
+    "hideMyFavInLib": false
+  },
+  "plugins": {
+    "simple-download": {
+      "hideMenu": false
+    }
+  }
+}

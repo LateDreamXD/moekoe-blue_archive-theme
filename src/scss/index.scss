@@ -1,0 +1,111 @@
+html {
+	--ba-text-color: #000;
+	--ba-back-color: #fff;
+	--ba-back-image: '';
+	--ba-font-family: Blueaka, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+	background: fixed center no-repeat;
+	background-image: var(--ba-back-image);
+
+	@media (prefers-color-scheme: dark) {
+		--ba-text-color: #fff;
+		--ba-back-color: #000;
+	}
+}
+
+body {
+	background-color: transparent !important;
+}
+
+#app {
+	font-family: var(--ba-font-family);
+
+	// tab
+	> header {
+		color: var(--ba-text-color);
+		background-color: color-mix(in srgb, var(--ba-back-color) 80%, transparent) !important;
+
+		.navigation button {
+			i {
+				color: var(--ba-text-color) !important;
+			}
+			&:disabled {
+				opacity: 0.5;
+			}
+		}
+	}
+
+	// about / eula dialog
+	> .modal-overlay > .modal-content {
+		color: var(--ba-text-color);
+		background-color: color-mix(in srgb, var(--ba-back-color) 80%, transparent);
+		backdrop-filter: blur(8px);
+	}
+
+	// route viewer
+	> main {
+		&:is(html.dark main) {
+			color: var(--ba-text-color);
+			background-color: color-mix(in srgb, var(--ba-back-color) 40%, transparent);
+		}
+		// any
+		> div {
+			color: var(--ba-text-color);
+			background-color: color-mix(in srgb, var(--ba-back-color) 40%, transparent);
+			.song-list {
+				background-color: transparent;
+			}
+		}
+
+		// home
+		> .container {
+		}
+
+		// discover
+		> .discover-page {}
+
+		// library
+		> .library-page {
+			> .section-title, > .favorite-section {
+				display: var(--ba-library-fav-display);
+			}
+		}
+
+		// search
+		> .search-page {
+			> .search-results {
+				background-color: color-mix(in srgb, var(--ba-back-color) 40%, transparent);
+
+				.section-header > h3 {
+					color: var(--ba-text-color);
+				}
+			}
+		}
+
+		// settings
+		> .settings-page {}
+	}
+
+	// player
+	> .player-container {
+		color: var(--ba-text-color);
+		background-color: color-mix(in srgb, var(--ba-back-color) 70%, transparent) !important;
+
+		transition: transform 0.3s ease-in-out;
+		transform: translateY(var(--ba-player-bottom));
+
+		&:hover {
+			transform: translateY(0);
+		}
+
+		> .player-bar {
+			> .controls, > .extra-controls {
+				i {
+					// color: color-mix(in srgb, var(--ba-text-color), 80%, transparent);
+					color: var(--ba-text-color);
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+}

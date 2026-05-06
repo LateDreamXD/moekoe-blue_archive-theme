@@ -37,25 +37,25 @@ jobs:
           artifacts: 'dist/${{ github.repository }}-${{ github.ref_name }}.zip'
           draft: true
 
-  publish-to-marketplace:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - id: check
-        run: |
-          sudo apt install jq -y
-          name=$(jq .name package.json)
-          version=$(jq .version package.json)
-          description=$(jq .description package.json)
-          echo "name=$name" >> $GITHUB_OUTPUT
-          echo "version=$version" >> $GITHUB_OUTPUT
-          echo "description=$description" >> $GITHUB_OUTPUT
-      - name: generate body
-        run: |
-          sed -i "s/%name%/${{ steps.check.outputs.name }}/" docs/publish.md
-          sed -i "s/%description%/${{ steps.check.outputs.description }}/" docs/publish.md
-          sed -i "s/%repo%/${{ github.repository }}/" docs/publish.md
-      - run: |
-          sudo apt install gh -y
-          echo ${{ secrets.PAT_TOKEN }} | gh auth login --with-token
-          gh issue create --title "[Plugin]: ${{ steps.check.outputs.name }}" --body-file docs/publish.md --labels "plugin, publish" --repo MoeKoeMusic/MoeKoeMusic-Plugins
+  # publish-to-marketplace:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v6
+  #     - id: check
+  #       run: |
+  #         sudo apt install jq -y
+  #         name=$(jq .name package.json)
+  #         version=$(jq .version package.json)
+  #         description=$(jq .description package.json)
+  #         echo "name=$name" >> $GITHUB_OUTPUT
+  #         echo "version=$version" >> $GITHUB_OUTPUT
+  #         echo "description=$description" >> $GITHUB_OUTPUT
+  #     - name: generate body
+  #       run: |
+  #         sed -i "s/%name%/${{ steps.check.outputs.name }}/" docs/publish.md
+  #         sed -i "s/%description%/${{ steps.check.outputs.description }}/" docs/publish.md
+  #         sed -i "s/%repo%/${{ github.repository }}/" docs/publish.md
+  #     - run: |
+  #         sudo apt install gh -y
+  #         echo ${{ secrets.PAT_TOKEN }} | gh auth login --with-token
+  #         gh issue create --title "[Plugin]: ${{ steps.check.outputs.name }}" --body-file docs/publish.md --labels "plugin, publish" --repo MoeKoeMusic/MoeKoeMusic-Plugins

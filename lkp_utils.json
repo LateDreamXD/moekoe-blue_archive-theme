@@ -4,23 +4,41 @@
     "outpath": "dist/manifest.json"
   },
   "meta": {
-    "permissions": ["scripting"],
+    "name": "蔚蓝档案主题",
+    "id": "blue_archive-theme",
+    "min_moekoe_version": "1.6.2",
+    "permissions": ["storage"],
     "injects": [
       {
         "matches": ["<all_urls>"],
         "js": ["content.iife.js"],
+        "css": ["css/index.css"],
         "run_at": "document_end"
       }
     ],
-    "background": "background.iife.js",
     "popup": {
-      "html": "popup.html",
-      "icon": "icon.png",
-      "title": "popup"
+      "html": "web/index.html",
+      "icon": "assets/icon.png",
+      "title": "设置"
     },
     "icons": {
-      "768": "icon.png"
+      "162": "assets/icon.png"
     },
+    "csp": [
+      {
+        "matches": ["<all_urls>"],
+        "resources": [
+          "css/*.css",
+          "assets/fonts/index.css",
+          "assets/fonts/Blueaka/*.css",
+          "assets/fonts/Blueaka/*.woff2",
+          "assets/fonts/Blueaka_Bold/*.css",
+          "assets/fonts/Blueaka_Bold/*.woff2",
+          "assets/wallpaper/*.png",
+          "assets/wallpaper/*.jpg"
+        ]
+      }
+    ],
     "generator": "moekoe-plugin-template-ts"
   }
 }
