@@ -23,18 +23,22 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
-      - name: Install dependencies and build
+      - name: Install dependencies
+        run: npm install
+      - name: Build
         run: |
-          npm install
           npm run build
           cp LICENSE dist/LICENSE
+          mkdir plugin
+          mkdir plugin/ba-theme
+          mv dist/* plugin/ba-theme
       - uses: TheDoctor0/zip-release@0.7.6
         with:
-          directory: dist
-          filename: '${{ github.repository }}-${{ github.ref_name }}.zip'
+          directory: plugin
+          filename: 'ba-theme-${{ github.ref_name }}.zip'
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: 'dist/${{ github.repository }}-${{ github.ref_name }}.zip'
+          artifacts: 'plugin/ba-theme-${{ github.ref_name }}.zip'
           draft: true
 
   # publish-to-marketplace:
