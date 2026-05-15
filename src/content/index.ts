@@ -12,6 +12,9 @@ const getCfg = async (): Promise<BAConfig> => {
 const init = async () => {
 	if(location.hash === '#/lyrics') return;
 	const config = await getCfg();
+	if(config.appearance.verticalTab) {
+		document.querySelector('#app:not([data-v-app])')?.classList.add('--ba-vertical-tab');
+	}
 	initStyles(config);
 }
 

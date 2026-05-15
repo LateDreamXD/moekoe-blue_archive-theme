@@ -21,7 +21,7 @@ body {
 	font-family: var(--ba-font-family);
 
 	// tab
-	> header {
+	>header {
 		color: var(--ba-text-color);
 		background-color: color-mix(in srgb, var(--ba-back-color) 80%, transparent) !important;
 
@@ -29,6 +29,7 @@ body {
 			i {
 				color: var(--ba-text-color) !important;
 			}
+
 			&:disabled {
 				opacity: 0.5;
 			}
@@ -36,58 +37,61 @@ body {
 	}
 
 	// about / eula dialog
-	> .modal-overlay > .modal-content {
+	>.modal-overlay>.modal-content {
 		color: var(--ba-text-color);
 		background-color: color-mix(in srgb, var(--ba-back-color) 80%, transparent);
 		backdrop-filter: blur(8px);
 	}
 
 	// route viewer
-	> main {
+	>main {
 		&:is(html.dark main) {
 			color: var(--ba-text-color);
 			background-color: color-mix(in srgb, var(--ba-back-color) 40%, transparent);
 		}
+
 		// any
-		> div {
+		>div {
 			color: var(--ba-text-color);
 			background-color: color-mix(in srgb, var(--ba-back-color) 40%, transparent);
+
 			.song-list {
 				background-color: transparent;
 			}
 		}
 
 		// home
-		> .container {
-		}
+		>.container {}
 
 		// discover
-		> .discover-page {}
+		>.discover-page {}
 
 		// library
-		> .library-page {
-			> .section-title, > .favorite-section {
+		>.library-page {
+
+			>.section-title,
+			>.favorite-section {
 				display: var(--ba-library-fav-display);
 			}
 		}
 
 		// search
-		> .search-page {
-			> .search-results {
+		>.search-page {
+			>.search-results {
 				background-color: color-mix(in srgb, var(--ba-back-color) 40%, transparent);
 
-				.section-header > h3 {
+				.section-header>h3 {
 					color: var(--ba-text-color);
 				}
 			}
 		}
 
 		// settings
-		> .settings-page {}
+		>.settings-page {}
 	}
 
 	// player
-	> .player-container {
+	>.player-container {
 		color: var(--ba-text-color);
 		background-color: color-mix(in srgb, var(--ba-back-color) 70%, transparent) !important;
 
@@ -98,14 +102,87 @@ body {
 			transform: translateY(0);
 		}
 
-		> .player-bar {
-			> .controls, > .extra-controls {
+		>.player-bar {
+
+			>.controls,
+			>.extra-controls {
 				i {
 					// color: color-mix(in srgb, var(--ba-text-color), 80%, transparent);
 					color: var(--ba-text-color);
 					opacity: 0.8;
 				}
 			}
+		}
+	}
+
+	&.--ba-vertical-tab {
+		height: 100vh;
+		display: grid;
+		grid-template-areas: 'tab main'
+			'tab player';
+
+		>header {
+			display: flex;
+			flex-direction: column;
+			position: fixed;
+			grid-area: tab;
+			z-index: 0;
+			width: 20vw;
+			height: 100vh;
+
+			>nav {
+				display: grid;
+				justify-items: center;
+				grid-template-areas: 'search'
+					'ctrls'
+					'links';
+
+				>.navigation {
+					grid-area: ctrls;
+				}
+
+				>.nav-links {
+					text-align: center;
+					flex-direction: column;
+					grid-area: links;
+					width: fit-content;
+				}
+
+				>.search-profile {
+					grid-area: search;
+
+					>.search-bar>input {
+						// min-width: fit-content;
+						font-size: 1rem;
+						width: 2rem;
+
+						&:focus {
+							width: 4rem;
+						}
+					}
+
+					>.profile>.profile-menu {
+						left: 50%;
+						transform: translateX(-50%);
+					}
+				}
+			}
+		}
+
+		>main {
+			padding: 0;
+			margin-left: 20vw;
+			width: 80vw;
+			height: fit-content;
+			grid-area: main;
+
+			>.discover-page {
+				margin-top: 100px;
+			}
+		}
+
+		>.player-container {
+			grid-area: player;
 		}
 	}
 }

@@ -37,6 +37,6 @@ export const init = (cfg: BAConfig) => {
 	if(cfg.appearance.customFonts) injectCSS(basePath + 'assets/fonts/index.css', 'ba-fonts');
 	if(cfg.appearance.clickEffect.enable) injectBASpark(cfg.appearance.clickEffect.config);
 	if(cfg.appearance.autoHidePlayer) injectStyle('#app { --ba-player-bottom: 80%; }', 'ba-auto-hide-player');
-	if(cfg.appearance.verticalTab) injectCSS(basePath + 'css/vertical-tab.css', 'ba-vertical-tab');
+	// if(cfg.appearance.verticalTab) injectCSS(basePath + 'css/vertical-tab.css', 'ba-vertical-tab');
 	if(cfg.appearance.hideMyFavInLib) injectStyle('#app { --ba-library-fav-display: none; }', 'ba-hide-my-fav-in-lib');
 }

@@ -4,7 +4,7 @@ const basePath = './src/scss/';
 const distPath = './dist/css/';
 const scss = [
 	'index.scss',
-	'vertical-tab.scss',
+	// 'vertical-tab.scss',
 ];
 
 scss.forEach(name => {
