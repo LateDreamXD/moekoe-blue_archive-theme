@@ -3,19 +3,18 @@ import BASpark from 'vue-ba-spark';
 
 const basePath = chrome.runtime.getURL('');
 
-const injectCSS = (path: string, id?: string) => {
-	if(id)
-		document.getElementById(id)?.remove();
+const injectCSS = (path: string, id: string) => {
+	document.getElementById(id)?.remove();
 	const link = document.createElement('link');
 	link.rel = 'stylesheet';
 	link.href = path;
 	document.head.appendChild(link);
 }
 
-const injectStyle = (content: string, id?: string) => {
-	if(id)
-		document.getElementById(id)?.remove();
+const injectStyle = (content: string, id: string) => {
+	document.getElementById(id)?.remove();
 	const style = document.createElement('style');
+	style.id = id;
 	style.innerText = content;
 	document.head.appendChild(style);
 }
@@ -47,5 +46,7 @@ const generateStyle = (cfg: BAConfig) => {
 export const init = (cfg: BAConfig) => {
 	injectStyle(generateStyle(cfg), '--ba-base-style');
 	if(cfg.appearance.customFonts) injectCSS(basePath + 'assets/fonts/index.css', '--ba-fonts');
+	else document.getElementById('--ba-fonts')?.remove();
 	if(cfg.appearance.clickEffect.enable) injectBASpark(cfg.appearance.clickEffect.config);
+	else document.getElementById('--ba-spark')?.remove();
 }

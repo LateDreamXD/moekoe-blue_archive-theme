@@ -17,7 +17,7 @@
       }
     ],
     "popup": {
-      "html": "web/index.html",
+      "html": "index.html",
       "icon": "assets/icon.png",
       "title": "设置"
     },

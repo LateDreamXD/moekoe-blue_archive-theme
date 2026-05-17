@@ -1,7 +1,8 @@
 type BAConfig = {
 	appearance: {
+		[x: string]: any;
 		/** @default "arona.jpg" */
-		wallpaper?: string;
+		wallpaper: string | false;
 		/** @default true */
 		customFonts: boolean;
 		clickEffect: {

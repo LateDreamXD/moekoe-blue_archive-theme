@@ -16,19 +16,21 @@
     "name": "晚梦",
     "url": "https://github.com/LateDreamXD"
   },
+  "repository": "LateDreamXD/moekoe-blue_archive-theme",
   "license": "MIT",
   "devDependencies": {
     "@latedream/moekoe-plugin-utils": "1.0.0-beta.2",
+    "@lucide/vue": "^1.16.0",
+    "@picocss/pico": "^2.1.1",
     "@types/node": "^25.5.0",
     "@vitejs/plugin-vue": "^6.0.6",
     "chrome-types": "^0.1.425",
     "sass-embedded": "^1.99.0",
     "tsdown": "^0.21.7",
     "typescript": "^6.0.2",
+    "vue": "^3.5.34",
+    "vue-ba-spark": "^0.1.1",
+    "vue-router": "^5.0.7",
     "vite": "^8.0.10"
-  },
-  "dependencies": {
-    "vue": "^3.5.33",
-    "vue-ba-spark": "^0.1.1"
   }
 }

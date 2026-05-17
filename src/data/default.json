@@ -12,7 +12,7 @@
   },
   "plugins": {
     "simple-download": {
-      "hideMenu": false
+      "btnInTab": false
     }
   }
 }

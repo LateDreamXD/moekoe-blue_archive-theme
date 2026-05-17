@@ -6,7 +6,13 @@
     "module": "esnext",
 
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+
+    "paths": {
+      "@package.json": ["./package.json"],
+      "@lkp_utils.json": ["./lkp_utils.json"],
+      "@web/*": ["./src/web/*"]
+    }
   },
   "include": [
     "src/**/*"

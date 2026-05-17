@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="charset" content="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
-  </head>
 
-  <body>
-    <div id="app"></div>
-    <script type="module" src="./src/index.ts"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>蔚蓝档案主题 配置</title>
+  <style>
+    :root {
+      --pico-font-family-sans-serif: 'Blueaka', system-ui, sans-serif !important;
+    }
+    body {
+      width: 100vw;
+      min-height: 100vh;
+      background-position: center;
+      background-size: cover;
+    }
+    #app {
+      width: 100%;
+      min-height: 100vh;
+      background-color: color-mix(in srgb, var(--pico-background-color), transparent 50%);
+    }
+  </style>
+  <link rel="stylesheet" href="/assets/fonts/index.css" />
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="./src/index.ts"></script>
+</body>
+
 </html>
