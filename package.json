@@ -10,8 +10,7 @@
     "build:js": "tsdown",
     "build:css": "node bin/buildCSS.js",
     "build:web": "vite build",
-    "postbuild": "utils gen-manifest",
-    "gen-manifest": "utils gen-manifest -o ./manifest.json"
+    "postbuild": "utils gen-manifest"
   },
   "author": {
     "name": "晚梦",
