@@ -1,0 +1,16 @@
+// variables
+@function generate-bg($percent) {
+	@return color-mix(in srgb, var(--ba-back-color) $percent, transparent);
+}
+
+@function generate-fg($percent) {
+	@return color-mix(in srgb, var(--ba-text-color) $percent, transparent);
+}
+
+$bg-40: generate-bg(40%);
+$bg-50: generate-bg(50%);
+$bg-60: generate-bg(60%);
+$bg-70: generate-bg(70%);
+$bg-80: generate-bg(80%);
+
+$fg-80: generate-fg(80%);

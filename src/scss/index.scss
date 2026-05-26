@@ -1,3 +1,10 @@
+/*
+ * 蔚蓝档案（Blue Archive）主题样式表
+ * by LateDreamXD
+ */
+
+@use './vars' as *;
+
 html {
 	--ba-text-color: #000;
 	--ba-back-color: #fff;
@@ -23,7 +30,7 @@ body {
 	// tab
 	>header {
 		color: var(--ba-text-color);
-		background-color: color-mix(in srgb, var(--ba-back-color) 80%, transparent) !important;
+		background-color: $bg-80 !important;
 
 		.navigation button {
 			i {
@@ -39,21 +46,22 @@ body {
 	// about / eula dialog
 	>.modal-overlay>.modal-content {
 		color: var(--ba-text-color);
-		background-color: color-mix(in srgb, var(--ba-back-color) 80%, transparent);
+		background-color: $bg-80;
 		backdrop-filter: blur(8px);
 	}
 
 	// route viewer
 	>main {
-		&:is(html.dark main) {
-			color: var(--ba-text-color);
-			background-color: color-mix(in srgb, var(--ba-back-color) 40%, transparent);
+		color: var(--ba-text-color);
+		background-color: transparent;
+		&:not(:has(.settings-page)) {
+			background-color: $bg-40;
 		}
 
 		// any
 		>div {
 			color: var(--ba-text-color);
-			background-color: color-mix(in srgb, var(--ba-back-color) 40%, transparent);
+			background-color: $bg-40;
 
 			.song-list {
 				background-color: transparent;
@@ -78,7 +86,7 @@ body {
 		// search
 		>.search-page {
 			>.search-results {
-				background-color: color-mix(in srgb, var(--ba-back-color) 40%, transparent);
+				background-color: $bg-40;
 
 				.section-header>h3 {
 					color: var(--ba-text-color);
@@ -87,13 +95,24 @@ body {
 		}
 
 		// settings
-		>.settings-page {}
+		>.settings-page {
+			>.settings-sidebar {
+				background-color: $bg-60;
+			}
+			>.settings-content {
+				background-color: $bg-40;
+
+				>.version-info {
+					color: $fg-80 !important;
+				}
+			}
+		}
 	}
 
 	// player
 	>.player-container {
 		color: var(--ba-text-color);
-		background-color: color-mix(in srgb, var(--ba-back-color) 70%, transparent) !important;
+		background-color: $bg-70 !important;
 
 		transition: transform 0.3s ease-in-out;
 		transform: translateY(var(--ba-player-bottom));
