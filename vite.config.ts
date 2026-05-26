@@ -20,5 +20,12 @@ export default <UserConfig>{
 		copyPublicDir: false
 	},
 	publicDir: resolve(cwd, 'public'),
-	plugins: [vue()]
+	plugins: [vue(), {
+		name: 'rename-index-html',
+		enforce: 'post',
+		generateBundle(_, bundle) {
+			if (bundle['index.html'])
+				bundle['index.html'].fileName = 'popup.html';
+		}
+	}]
 }
