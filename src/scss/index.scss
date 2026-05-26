@@ -7,7 +7,7 @@ html {
 	background: fixed center no-repeat;
 	background-image: var(--ba-back-image);
 
-	@media (prefers-color-scheme: dark) {
+	&.dark {
 		--ba-text-color: #fff;
 		--ba-back-color: #000;
 	}
