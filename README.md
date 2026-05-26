@@ -16,7 +16,7 @@ The sky blue archive✨
 
 ## 安装
 
-1. ~~通过插件市场安装~~ 还未上架
+1. 通过插件市场安装
 2. 手动安装
     1. [下载](https://github.com/LateDreamXD/moekoe-blue_archive-theme/releases/latest)主题包 (.zip)
 	2. 打开 MoeKoe Music，点击 `设置` -> `插件` -> `安装插件`，选择刚刚下载的主题包
