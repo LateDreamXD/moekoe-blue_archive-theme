@@ -54,6 +54,14 @@ const getPath = (file: string) => {
 				<img v-else :src="config.appearance.wallpaper" />
 			</button>
 		</div>
+		<fieldset>
+			<label for="wallpaper-size">壁纸缩放方式</label>
+			<select id="wallpaper-size" v-model="config.appearance.wallpaperSize" @change="saveConfig(config)">
+				<option value="cover">铺满（裁剪）</option>
+				<option value="contain">完整显示（可能有黑边）</option>
+				<option value="fill">拉伸填充</option>
+			</select>
+		</fieldset>
 		<dialog :open="showCustomWallpaperDialog">
 			<article>
 				<h2>自定义壁纸...</h2>

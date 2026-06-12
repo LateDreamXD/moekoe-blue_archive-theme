@@ -46,8 +46,14 @@ const generateStyle = (cfg: BAConfig) => {
 	if(cfg.appearance.wallpaper) {
 		const wallpaperPath = cfg.appearance.wallpaper.match(/\/|\\/g)?.length! > 0?
 			  cfg.appearance.wallpaper: `${basePath}assets/wallpaper/${cfg.appearance.wallpaper}`;
+		const wallpaperSize = {
+			'cover': 'cover',
+			'contain': 'contain',
+			'fill': '100% 100%'
+		}[cfg.appearance.wallpaperSize] || 'cover';
 		base += `html {
 			--ba-back-image: url('${wallpaperPath}');
+			--ba-back-size: ${wallpaperSize};
 		}`;
 	}
 	return base;

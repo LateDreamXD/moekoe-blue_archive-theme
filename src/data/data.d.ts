@@ -3,6 +3,8 @@ type BAConfig = {
 		[x: string]: any;
 		/** @default "arona.jpg" */
 		wallpaper: string | false;
+		/** @default "cover" */
+		wallpaperSize: 'cover' | 'contain' | 'fill';
 		/** @default true */
 		customFonts: boolean;
 		clickEffect: {

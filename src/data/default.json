@@ -1,6 +1,7 @@
 {
   "appearance": {
     "wallpaper": "arona.jpg",
+    "wallpaperSize": "cover",
     "customFonts": true,
     "clickEffect": {
       "enable": true,
