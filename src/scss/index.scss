@@ -148,7 +148,7 @@ body {
 			position: fixed;
 			grid-area: tab;
 			z-index: 0;
-			width: 20vw;
+			width: var(--ba-sidebar-width);
 			height: 100vh;
 
 			>nav {
@@ -192,8 +192,8 @@ body {
 
 		>main {
 			padding: 0;
-			margin-left: 20vw;
-			width: 80vw;
+			margin-left: var(--ba-sidebar-width);
+			width: calc(100vw - var(--ba-sidebar-width));
 			height: fit-content;
 			grid-area: main;
 

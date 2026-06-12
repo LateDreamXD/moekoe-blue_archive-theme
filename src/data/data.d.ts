@@ -18,6 +18,8 @@ type BAConfig = {
 		verticalTab: boolean;
 		/** @default false */
 		hideMyFavInLib: boolean;
+		/** @default 0 */
+		sidebarMaxWidth: number;
 	}
 	plugins: {
 		[key: string]: {

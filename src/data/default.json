@@ -9,7 +9,8 @@
     },
     "autoHidePlayer": true,
     "verticalTab": true,
-    "hideMyFavInLib": false
+    "hideMyFavInLib": false,
+    "sidebarMaxWidth": 0
   },
   "plugins": {
     "simple-download": {

@@ -20,7 +20,10 @@ const { config } = defineProps<{
 					{{ appearanceItem.label }}
 					<small v-if="appearanceItem.description">{{ appearanceItem.description }}</small>
 				</span>
-				<input :type="appearanceItem.type" :id="appearanceItem.id" role="switch"
+				<input v-if="appearanceItem.type === 'number'" :type="appearanceItem.type" :id="appearanceItem.id"
+					min="0" step="1"
+					v-model.number="config.appearance[appearanceItem.model]" @change="saveConfig(config);" />
+				<input v-else :type="appearanceItem.type" :id="appearanceItem.id" role="switch"
 					v-model="config.appearance[appearanceItem.model]" @change="saveConfig(config);" />
 			</label>
 

@@ -39,9 +39,13 @@ const injectBASpark = (options: import('vue-ba-spark').Options) => {
 }
 
 const generateStyle = (cfg: BAConfig) => {
+	const sidebarWidth = cfg.appearance.sidebarMaxWidth
+		? `min(20vw, ${cfg.appearance.sidebarMaxWidth}px)`
+		: '20vw';
 	let base = `#app {
 		--ba-player-bottom: ${cfg.appearance.autoHidePlayer ? '80%' : '0%'};
 		--ba-library-fav-display: ${cfg.appearance.hideMyFavInLib ? 'none' : 'block'};
+		--ba-sidebar-width: ${sidebarWidth};
 	}`;
 	if(cfg.appearance.wallpaper) {
 		const wallpaperPath = cfg.appearance.wallpaper.match(/\/|\\/g)?.length! > 0?
