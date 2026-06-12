@@ -28,7 +28,7 @@ onMounted(async () => {
 			</router-link>
 		</nav>
 	</footer>
-	<BASpark />
+	<BASpark :style="{ width: '100vw', height: '100vh' }" />
 </template>
 
 <style lang="scss" scoped>

@@ -24,7 +24,13 @@ const injectBASpark = (options: import('vue-ba-spark').Options) => {
 	const node = document.createElement('div');
 	node.id = '--ba-spark';
 	document.body.appendChild(node);
-	const baspark = createApp(BASpark, { opts: options });
+	const baspark = createApp(BASpark, {
+		opts: options,
+		style: {
+			width: '100vw',
+			height: '100vh'
+		}
+	});
 	baspark.mount(node);
 }
 
