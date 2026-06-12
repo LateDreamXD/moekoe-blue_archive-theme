@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import BASpark from 'vue-ba-spark';
+import { BASPARK_FULL_VIEWPORT_STYLE, handleBASParkCanvasResize } from '../shared/constants';
 
 const basePath = chrome.runtime.getURL('');
 
@@ -26,12 +27,15 @@ const injectBASpark = (options: import('vue-ba-spark').Options) => {
 	document.body.appendChild(node);
 	const baspark = createApp(BASpark, {
 		opts: options,
-		style: {
-			width: '100vw',
-			height: '100vh'
-		}
+		style: BASPARK_FULL_VIEWPORT_STYLE
 	});
 	baspark.mount(node);
+
+	window.addEventListener('resize', handleBASParkCanvasResize);
+
+	node.addEventListener('DOMNodeRemoved', () => {
+		window.removeEventListener('resize', handleBASParkCanvasResize);
+	}, { once: true });
 }
 
 const generateStyle = (cfg: BAConfig) => {
@@ -54,5 +58,8 @@ export const init = (cfg: BAConfig) => {
 	if(cfg.appearance.customFonts) injectCSS(basePath + 'assets/fonts/index.css', '--ba-fonts');
 	else document.getElementById('--ba-fonts')?.remove();
 	if(cfg.appearance.clickEffect.enable) injectBASpark(cfg.appearance.clickEffect.config);
-	else document.getElementById('--ba-spark')?.remove();
+	else {
+		document.getElementById('--ba-spark')?.remove();
+		window.dispatchEvent(new Event('baspark:unmounted'));
+	}
 }
