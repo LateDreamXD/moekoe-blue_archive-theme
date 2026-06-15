@@ -9,10 +9,12 @@ html {
 	--ba-text-color: #000;
 	--ba-back-color: #fff;
 	--ba-back-image: '';
+	--ba-back-size: cover;
 	--ba-font-family: Blueaka, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 
 	background: fixed center no-repeat;
 	background-image: var(--ba-back-image);
+	background-size: var(--ba-back-size);
 
 	&.dark {
 		--ba-text-color: #fff;
@@ -146,7 +148,7 @@ body {
 			position: fixed;
 			grid-area: tab;
 			z-index: 0;
-			width: 20vw;
+			width: var(--ba-sidebar-width);
 			height: 100vh;
 
 			>nav {
@@ -190,8 +192,8 @@ body {
 
 		>main {
 			padding: 0;
-			margin-left: 20vw;
-			width: 80vw;
+			margin-left: var(--ba-sidebar-width);
+			width: calc(100vw - var(--ba-sidebar-width));
 			height: fit-content;
 			grid-area: main;
 

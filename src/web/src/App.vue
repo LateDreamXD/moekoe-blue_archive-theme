@@ -1,18 +1,23 @@
 <script setup lang="ts">
-import { reactive, onMounted } from 'vue';
+import { reactive, onMounted, onUnmounted } from 'vue';
 import BASpark from 'vue-ba-spark';
+import { BASPARK_FULL_VIEWPORT_STYLE, handleBASParkCanvasResize } from '../../shared/constants';
 import defaultConfig from '../../data/default.json';
 import { loadConfig } from './utils';
 import { pages } from './router';
 
 const config = reactive<BAConfig>(defaultConfig);
 
-
 onMounted(async () => {
 	const cfg = await loadConfig();
 	if(cfg) {
 		Object.assign(config, cfg);
 	}
+	window.addEventListener('resize', handleBASParkCanvasResize);
+});
+
+onUnmounted(() => {
+	window.removeEventListener('resize', handleBASParkCanvasResize);
 });
 </script>
 
@@ -28,7 +33,7 @@ onMounted(async () => {
 			</router-link>
 		</nav>
 	</footer>
-	<BASpark />
+	<BASpark :style="BASPARK_FULL_VIEWPORT_STYLE" />
 </template>
 
 <style lang="scss" scoped>

@@ -6,7 +6,7 @@ const getCfg = async (): Promise<BAConfig> => {
 		await chrome.storage.local.get('ba-theme-config') as { 'ba-theme-config': BAConfig };
 	if(!config) {
 		await chrome.storage.local.set({ 'ba-theme-config': defaultCfg });
-		return defaultCfg;
+		return defaultCfg as BAConfig;
 	} else return config;
 }
 

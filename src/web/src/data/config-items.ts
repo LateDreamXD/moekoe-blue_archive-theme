@@ -25,6 +25,13 @@ const appearanceItems = [
 		type: 'checkbox',
 		model: 'hideMyFavInLib'
 	},
+	{
+		id: 'sidebar-max-width',
+		label: '侧边栏最大宽度',
+		description: '限制导航栏（首页/发现/音乐库）的最大宽度（单位 px），0 表示不限制',
+		type: 'number',
+		model: 'sidebarMaxWidth'
+	},
 ];
 
 const clickEffectItems = [
