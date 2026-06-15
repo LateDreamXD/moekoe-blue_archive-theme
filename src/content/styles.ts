@@ -70,6 +70,5 @@ export const init = (cfg: BAConfig) => {
 	if(cfg.appearance.clickEffect.enable) injectBASpark(cfg.appearance.clickEffect.config);
 	else {
 		document.getElementById('--ba-spark')?.remove();
-		window.dispatchEvent(new Event('baspark:unmounted'));
 	}
 }
