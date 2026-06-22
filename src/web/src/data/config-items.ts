@@ -19,18 +19,18 @@ const appearanceItems = [
 		model: 'verticalTab'
 	},
 	{
+		id: 'sidebar-max-width',
+		label: '垂直导航栏最大宽度',
+		description: '限制导航栏的最大宽度（单位 px），0 表示不限制',
+		type: 'number',
+		model: 'sidebarMaxWidth'
+	},
+	{
 		id: 'hide-my-fav-in-lib',
 		label: '在库中隐藏“我喜欢听”',
 		description: '隐藏音乐库页面的“我喜欢听”及其歌曲列表',
 		type: 'checkbox',
 		model: 'hideMyFavInLib'
-	},
-	{
-		id: 'sidebar-max-width',
-		label: '侧边栏最大宽度',
-		description: '限制导航栏（首页/发现/音乐库）的最大宽度（单位 px），0 表示不限制',
-		type: 'number',
-		model: 'sidebarMaxWidth'
 	},
 ];
 
