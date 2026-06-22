@@ -13,19 +13,25 @@ const getCfg = async (): Promise<BAConfig> => {
 
 const init = async () => {
 	if(location.hash === '#/lyrics') return; // ignore lyrics window
+	const app = document.querySelector('#app:not([data-v-app])')!;
 
 	chrome.storage.onChanged.addListener((changes, area) => {
 		if(area === 'local' && changes['ba-theme-config']) {
 			const config = changes['ba-theme-config'].newValue as BAConfig;
 			console.log('[ba-theme] ba-theme-config changed, reload styles');
 			initStyles(config);
+			app.classList.toggle(
+				'--ba-vertical-tab',
+				config.appearance.verticalTab && checkHelper('verticalTab').result
+			);
+			app.classList.toggle('--ba-auto-hide-player', config.appearance.autoHidePlayer);
 		}
 	});
 
 	const config = await getCfg();
-	if(config.appearance.verticalTab && checkHelper('verticalTab').result) {
-		document.querySelector('#app:not([data-v-app])')?.classList.add('--ba-vertical-tab');
-	}
+	if(config.appearance.verticalTab && checkHelper('verticalTab').result)
+		app.classList.add('--ba-vertical-tab');
+	if(config.appearance.autoHidePlayer) app.classList.add('--ba-auto-hide-player');
 	initStyles(config);
 }
 

@@ -18,7 +18,7 @@ html {
 
 	&.dark {
 		--ba-text-color: #fff;
-		--ba-back-color: #000;
+		--ba-back-color: #181818;
 	}
 }
 
@@ -51,7 +51,6 @@ body {
 		background-color: $bg-80;
 		backdrop-filter: blur(8px);
 	}
-
 	// route viewer
 	>main {
 		color: var(--ba-text-color);
@@ -113,18 +112,9 @@ body {
 
 	// player
 	>.player-container {
-		color: var(--ba-text-color);
 		background-color: $bg-70 !important;
 
-		transition: transform 0.3s ease-in-out;
-		transform: translateY(var(--ba-player-bottom));
-
-		&:hover {
-			transform: translateY(0);
-		}
-
 		>.player-bar {
-
 			>.controls,
 			>.extra-controls {
 				i {
@@ -136,6 +126,30 @@ body {
 		}
 	}
 
+	// auto hide player
+	&.--ba-auto-hide-player {
+		>.player-container {
+			transition: transform 0.3s ease-in-out;
+			transform: translateY(80%);
+
+			&:hover {
+				transform: translateY(0);
+			}
+		}
+
+		// new sidebar
+		>aside.side-navigation {
+			height: 100%;
+		}
+
+		// new sidebar+router viewer
+		>main.side-navigation-main-content {
+			padding-bottom: 8px;
+		}
+
+	}
+
+	// ba sidebar for old version
 	&.--ba-vertical-tab {
 		height: 100vh;
 		display: grid;
