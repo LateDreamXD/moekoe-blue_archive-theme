@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import BASpark from 'vue-ba-spark';
 import { BASPARK_FULL_VIEWPORT_STYLE, handleBASParkCanvasResize } from '../shared/constants';
+import checkHelper from '../shared/check-helper';
 
 const basePath = chrome.runtime.getURL('');
 
@@ -44,7 +45,7 @@ const generateStyle = (cfg: BAConfig) => {
 		: '20vw';
 	let base = `#app {
 		--ba-player-bottom: ${cfg.appearance.autoHidePlayer ? '80%' : '0%'};
-		--ba-library-fav-display: ${cfg.appearance.hideMyFavInLib ? 'none' : 'block'};
+		--ba-library-fav-display: ${cfg.appearance.hideMyFavInLib && !checkHelper('hideMyFavInLib').result ? 'none' : 'block'};
 		--ba-sidebar-width: ${sidebarWidth};
 	}`;
 	if(cfg.appearance.wallpaper) {

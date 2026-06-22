@@ -1,5 +1,6 @@
 import { init as initStyles } from './styles';
 import defaultCfg from '../data/default.json';
+import checkHelper from '@shared/check-helper';
 
 const getCfg = async (): Promise<BAConfig> => {
 	const { 'ba-theme-config': config } =
@@ -22,7 +23,7 @@ const init = async () => {
 	});
 
 	const config = await getCfg();
-	if(config.appearance.verticalTab) {
+	if(config.appearance.verticalTab && checkHelper('verticalTab').result) {
 		document.querySelector('#app:not([data-v-app])')?.classList.add('--ba-vertical-tab');
 	}
 	initStyles(config);

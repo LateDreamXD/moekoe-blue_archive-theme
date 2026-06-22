@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import items from '../data/config-items';
 import { saveConfig } from '../utils';
+import checkHelper from '@shared/check-helper';
 
 const { config } = defineProps<{
 	config: BAConfig
@@ -17,13 +18,18 @@ const { config } = defineProps<{
 		<form>
 			<label v-for="appearanceItem of items.appearanceItems" class="config-item" :for="appearanceItem.id">
 				<span>
-					{{ appearanceItem.label }}
+					<span style="display: inline;">
+						{{ appearanceItem.label }}
+						<small v-if="checkHelper(appearanceItem.model as any).required">
+						（需 {{ checkHelper(appearanceItem.model as any).required }}）
+						</small>
+					</span>
 					<small v-if="appearanceItem.description">{{ appearanceItem.description }}</small>
 				</span>
 				<input v-if="appearanceItem.type === 'number'" :type="appearanceItem.type" :id="appearanceItem.id"
-					min="0" step="1"
+					min="0" step="1" :disabled="!checkHelper(appearanceItem.model as any).result"
 					v-model.number="config.appearance[appearanceItem.model]" @change="saveConfig(config);" />
-				<input v-else :type="appearanceItem.type" :id="appearanceItem.id" role="switch"
+				<input v-else :type="appearanceItem.type" :id="appearanceItem.id" role="switch" :disabled="!checkHelper(appearanceItem.model as any).result"
 					v-model="config.appearance[appearanceItem.model]" @change="saveConfig(config);" />
 			</label>
 

@@ -6,7 +6,7 @@ import defaultConfig from '../../data/default.json';
 import { loadConfig } from './utils';
 import { pages } from './router';
 
-const config = reactive<BAConfig>(defaultConfig);
+const config = reactive<BAConfig>(defaultConfig as BAConfig);
 
 onMounted(async () => {
 	const cfg = await loadConfig();

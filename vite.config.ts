@@ -12,7 +12,9 @@ export default <UserConfig>{
 			'@': resolve(cwd, 'src/web/'),
 			'@web': resolve(cwd, 'src/web/'),
 			'@package.json': resolve(cwd, 'package.json'),
-			'@lkp_utils.json': resolve(cwd, 'lkp_utils.json')
+			'@lkp_utils.json': resolve(cwd, 'lkp_utils.json'),
+			'@shared': resolve(cwd, 'src/shared/'),
+			'@data': resolve(cwd, 'src/data/')
 		}
 	},
 	build: {

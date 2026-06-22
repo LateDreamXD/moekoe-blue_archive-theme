@@ -11,7 +11,9 @@
     "paths": {
       "@package.json": ["./package.json"],
       "@lkp_utils.json": ["./lkp_utils.json"],
-      "@web/*": ["./src/web/*"]
+      "@web/*": ["./src/web/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@data/*": ["./src/data/*"]
     }
   },
   "include": [
