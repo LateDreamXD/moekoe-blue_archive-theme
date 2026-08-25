@@ -43,7 +43,8 @@ const generateStyle = (cfg: BAConfig) => {
 	const sidebarWidth = cfg.appearance.sidebarMaxWidth
 		? `min(20vw, ${cfg.appearance.sidebarMaxWidth}px)`
 		: '20vw';
-	let base = `#app {
+	let base = `/* dynamic inject from ba-theme */
+	#app {
 		--ba-library-fav-display: ${cfg.appearance.hideMyFavInLib && !checkHelper('hideMyFavInLib').result ? 'none' : 'block'};
 		--ba-sidebar-width: ${sidebarWidth};
 	}`;
@@ -55,7 +56,7 @@ const generateStyle = (cfg: BAConfig) => {
 			'contain': 'contain',
 			'fill': '100% 100%'
 		}[cfg.appearance.wallpaperSize] || 'cover';
-		base += `html {
+		base += `html[data-theme="ba"] {
 			--ba-back-image: url('${wallpaperPath}');
 			--ba-back-size: ${wallpaperSize};
 		}`;

@@ -13,6 +13,7 @@ const getCfg = async (): Promise<BAConfig> => {
 
 const init = async () => {
 	if(location.hash === '#/lyrics') return; // ignore lyrics window
+	document.documentElement.dataset.theme = 'ba'; // theme sign
 	const app = document.querySelector('#app:not([data-v-app])')!;
 
 	chrome.storage.onChanged.addListener((changes, area) => {

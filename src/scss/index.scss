@@ -5,12 +5,17 @@
 
 @use './vars' as *;
 
-html {
+html[data-theme="ba"] {
 	--ba-text-color: #000;
 	--ba-back-color: #fff;
 	--ba-back-image: '';
 	--ba-back-size: cover;
 	--ba-font-family: Blueaka, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+	// cover defalut vars
+	--text-color: #{$fg-80} !important;
+	--background-color: #{$bg-80} !important;
+	--background-color-secondary: #{$bg-60} !important;
 
 	background: fixed center no-repeat;
 	background-image: var(--ba-back-image);
@@ -23,7 +28,7 @@ html {
 }
 
 body {
-	background-color: transparent !important;
+	background-color: var(--background-color-secondary) !important;
 }
 
 #app {
@@ -32,7 +37,7 @@ body {
 	// tab
 	>header {
 		color: var(--ba-text-color);
-		background-color: $bg-80 !important;
+		// background-color: $bg-80 !important;
 
 		.navigation button {
 			i {
@@ -48,21 +53,18 @@ body {
 	// about / eula dialog
 	>.modal-overlay>.modal-content {
 		color: var(--ba-text-color);
-		background-color: $bg-80;
+		// background-color: $bg-80;
 		backdrop-filter: blur(8px);
 	}
 	// route viewer
 	>main {
 		color: var(--ba-text-color);
 		background-color: transparent;
-		&:not(:has(.settings-page)) {
-			background-color: $bg-40;
-		}
 
 		// any
 		>div {
 			color: var(--ba-text-color);
-			background-color: $bg-40;
+			// background-color: $bg-40;
 
 			.song-list {
 				background-color: transparent;
@@ -87,7 +89,7 @@ body {
 		// search
 		>.search-page {
 			>.search-results {
-				background-color: $bg-40;
+				// background-color: $bg-40;
 
 				.section-header>h3 {
 					color: var(--ba-text-color);
@@ -101,13 +103,13 @@ body {
 			background-color: transparent;
 
 			>.settings-sidebar {
-				background-color: $bg-60;
+				background-color: var(--background-color-secondary);
 			}
 			>.settings-content {
-				background-color: $bg-40;
+				padding: 0 20px 20px;
 
 				>.version-info {
-					color: $fg-80 !important;
+					color: var(--text-color) !important;
 					>p {
 						display: inline;
 						&::after {
@@ -121,15 +123,13 @@ body {
 
 	// player
 	>.player-container {
-		background-color: $bg-70 !important;
+		background-color: var(--background-color) !important;
 
 		>.player-bar {
 			>.controls,
 			>.extra-controls {
 				i {
-					// color: color-mix(in srgb, var(--ba-text-color), 80%, transparent);
-					color: var(--ba-text-color);
-					opacity: 0.8;
+					color: var(--text-color);
 				}
 			}
 		}
@@ -158,12 +158,11 @@ body {
 
 	}
 
-	// ba sidebar for old version
+	// ba-theme sidebar for old version
 	&.--ba-vertical-tab {
 		height: 100vh;
 		display: grid;
-		grid-template-areas: 'tab main'
-			'tab player';
+		grid-template-areas: 'tab main' 'tab player';
 
 		>header {
 			display: flex;
@@ -177,9 +176,7 @@ body {
 			>nav {
 				display: grid;
 				justify-items: center;
-				grid-template-areas: 'search'
-					'ctrls'
-					'links';
+				grid-template-areas: 'search' 'ctrls' 'links';
 
 				>.navigation {
 					grid-area: ctrls;
