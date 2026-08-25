@@ -119,6 +119,26 @@ body {
 				}
 			}
 		}
+
+		// song list, local music, cloud, etc.
+		.detail-page {
+			padding: 0; // cancel defalut padding
+
+			>.detail-sliver-header {
+				>.cover-art {
+					margin-left: 16px;
+				}
+			}
+
+			>.track-list-container {
+				>.track-list {
+					background-color: var(--background-color-secondary);
+				}
+				>.track-list-header {
+					padding: 0 16px;
+				}
+			}
+		}
 	}
 
 	// player
