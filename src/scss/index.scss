@@ -97,6 +97,7 @@ body {
 
 		// settings
 		.settings-page {
+			height: auto;
 			background-color: transparent;
 
 			>.settings-sidebar {
@@ -107,6 +108,12 @@ body {
 
 				>.version-info {
 					color: $fg-80 !important;
+					>p {
+						display: inline;
+						&::after {
+							content: ', ';
+						}
+					}
 				}
 			}
 		}
