@@ -103,7 +103,7 @@ body {
 
 		// settings
 		.settings-page {
-			height: auto;
+			min-height: 100vh;
 			background-color: transparent;
 
 			>.settings-sidebar {
