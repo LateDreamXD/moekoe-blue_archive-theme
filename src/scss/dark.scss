@@ -1,0 +1,22 @@
+@mixin dark {
+	#app {
+
+		>.player-container {
+
+			// fix colors in dark mode
+			.player-menu {
+				box-shadow: 0 2px 8px #ffffff45;
+				background-color: var(--ba-back-color);
+
+				&::after {
+					border-top-color: var(--ba-back-color);
+				}
+
+				>.player-menu-item.active {
+					color: var(--ba-text-color-contrast);
+					i { color: inherit; }
+				}
+			}
+		}
+	}
+}

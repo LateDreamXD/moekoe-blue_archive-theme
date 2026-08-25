@@ -4,10 +4,12 @@
  */
 
 @use './vars' as *;
+@use './dark' as *;
 
 html[data-theme="ba"] {
 	--ba-text-color: #000;
 	--ba-back-color: #fff;
+	--ba-text-color-contrast: var(--ba-back-color);
 	--ba-back-image: '';
 	--ba-back-size: cover;
 	--ba-font-family: Blueaka, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -24,6 +26,8 @@ html[data-theme="ba"] {
 	&.dark {
 		--ba-text-color: #fff;
 		--ba-back-color: #181818;
+
+		@include dark;
 	}
 }
 
