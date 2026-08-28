@@ -1,8 +1,11 @@
+import clickEffect from '@shared/click-effect';
+import configHelper from '@shared/config-helper';
+
 export const saveConfig = async (config: BAConfig) => {
-	await chrome.storage.local.set({ 'ba-theme-config': config });
+	clickEffect.onConfigChanged(config.appearance.clickEffect.config);
+	await configHelper.set(config);
 }
 
-export const loadConfig = async (): Promise<BAConfig | undefined> => {
-	const cfg = await chrome.storage.local.get('ba-theme-config');
-	if(cfg['ba-theme-config']) return cfg['ba-theme-config'];
+export const loadConfig = async (): Promise<BAConfig> => {
+	return configHelper.get();
 }

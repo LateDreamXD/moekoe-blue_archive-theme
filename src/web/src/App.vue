@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { reactive, onMounted, onUnmounted } from 'vue';
-import BASpark from 'vue-ba-spark';
-import { BASPARK_FULL_VIEWPORT_STYLE, handleBASParkCanvasResize } from '../../shared/constants';
+import clickEffect from '@shared/click-effect';
 import defaultConfig from '../../data/default.json';
 import { loadConfig } from './utils';
 import { pages } from './router';
@@ -9,15 +8,12 @@ import { pages } from './router';
 const config = reactive<BAConfig>(defaultConfig as BAConfig);
 
 onMounted(async () => {
-	const cfg = await loadConfig();
-	if(cfg) {
-		Object.assign(config, cfg);
-	}
-	window.addEventListener('resize', handleBASParkCanvasResize);
+	Object.assign(config, await loadConfig());
+	clickEffect.init(config.appearance.clickEffect.config);
 });
 
 onUnmounted(() => {
-	window.removeEventListener('resize', handleBASParkCanvasResize);
+	clickEffect.destroy();
 });
 </script>
 
@@ -33,7 +29,6 @@ onUnmounted(() => {
 			</router-link>
 		</nav>
 	</footer>
-	<BASpark :style="BASPARK_FULL_VIEWPORT_STYLE" />
 </template>
 
 <style lang="scss" scoped>

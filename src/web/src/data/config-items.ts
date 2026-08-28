@@ -1,7 +1,8 @@
 const appearanceItems = [
 	{
 		id: 'auto-hide-player',
-		label: '自动隐藏播放器',
+		label: '自动隐藏播放栏',
+		description: '<s>自动隐藏任务栏</s>',
 		type: 'checkbox',
 		model: 'autoHidePlayer'
 	},
@@ -12,65 +13,66 @@ const appearanceItems = [
 		type: 'checkbox',
 		model: 'customFonts'
 	},
-	{
-		id: 'vertical-tab',
-		label: '垂直导航栏',
-		type: 'checkbox',
-		model: 'verticalTab'
-	},
-	{
-		id: 'sidebar-max-width',
-		label: '垂直导航栏最大宽度',
-		description: '限制导航栏的最大宽度（单位 px），0 表示不限制',
-		type: 'number',
-		model: 'sidebarMaxWidth'
-	},
-	{
-		id: 'hide-my-fav-in-lib',
-		label: '在库中隐藏“我喜欢听”',
-		description: '隐藏音乐库页面的“我喜欢听”及其歌曲列表',
-		type: 'checkbox',
-		model: 'hideMyFavInLib'
-	},
 ];
 
 const clickEffectItems = [
 	{
-		id: 'ba-spark-always-trail',
-		label: '始终显示拖尾',
-		description: '无论鼠标是否按下，都显示拖尾',
+		id: 'cfx-trail-always',
+		label: '始终展示轨迹',
+		description: '无需按下鼠标，移动即显示拖尾',
 		type: 'checkbox',
-		model: 'alwaysTrail'
+		model: 'trailAlways'
 	},
 	{
-		id: 'ba-spark-color',
-		label: '颜色',
+		id: 'cfx-color',
+		label: '主要颜色',
+		description: '特效和拖尾的颜色',
 		type: 'color',
-		model: 'color'
+		model: 'themeColor'
 	},
 	{
-		id: 'ba-spark-scale',
+		id: 'cfx-scale',
 		label: '缩放倍率',
+		description: '整体大小，最小 1',
 		type: 'number',
+		min: 1,
 		model: 'scale'
 	},
 	{
-		id: 'ba-spark-opacity',
+		id: 'cfx-opacity',
 		label: '透明度',
+		description: '整体透明度，最小 0.01',
 		type: 'number',
+		min: 0.01,
+		step: 0.1,
 		model: 'opacity'
 	},
 	{
-		id: 'ba-spark-speed',
-		label: '动画速度',
+		id: 'cfx-click-time',
+		label: '点击效果时间倍率',
+		description: '波纹、旋转和碎片的时间倍率，最小 0.01',
 		type: 'number',
-		model: 'speed'
+		min: 0.01,
+		step: 0.1,
+		model: 'clickTimeScale'
 	},
 	{
-		id: 'ba-spark-max-trail',
-		label: '拖尾最大长度',
+		id: 'cfx-trail-time',
+		label: '轨迹时间倍率',
+		description: '拖尾衰减和拖尾碎片的时间倍率，最小 0.01',
 		type: 'number',
-		model: 'maxTrail'
+		min: 0.01,
+		step: 0.1,
+		model: 'trailTimeScale'
+	},
+	{
+		id: 'cfx-max-dpr',
+		label: '设备像素比上限',
+		description: '可按设备性能显式提高，最小 1',
+		type: 'number',
+		min: 1,
+		step: 0.1,
+		model: 'maxDpr'
 	}
 ];
 

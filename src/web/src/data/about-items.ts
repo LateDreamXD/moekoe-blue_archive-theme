@@ -38,8 +38,8 @@ const thanks = [
 		description: '提供了主题使用的字体、图标和部分背景图片'
 	},
 	{
-		url: 'https://npmx.dev/package/vue-ba-spark',
-		title: 'vue-ba-spark',
+		url: 'https://npmx.dev/package/ba-click-fx',
+		title: 'ba-click-fx',
 		description: '点击特效'
 	},
 	{
