@@ -6,7 +6,7 @@
   "meta": {
     "name": "蔚蓝档案主题",
     "id": "blue_archive-theme",
-    "min_moekoe_version": "1.6.2",
+    "min_moekoe_version": "1.6.8",
     "permissions": ["storage"],
     "injects": [
       {

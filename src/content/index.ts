@@ -1,6 +1,5 @@
 import { init as initStyles } from './styles';
 import defaultCfg from '../data/default.json';
-import checkHelper from '@shared/check-helper';
 
 const getCfg = async (): Promise<BAConfig> => {
 	const { 'ba-theme-config': config } =
@@ -21,17 +20,11 @@ const init = async () => {
 			const config = changes['ba-theme-config'].newValue as BAConfig;
 			console.log('[ba-theme] ba-theme-config changed, reload styles');
 			initStyles(config);
-			app.classList.toggle(
-				'--ba-vertical-tab',
-				config.appearance.verticalTab && checkHelper('verticalTab').result
-			);
 			app.classList.toggle('--ba-auto-hide-player', config.appearance.autoHidePlayer);
 		}
 	});
 
 	const config = await getCfg();
-	if(config.appearance.verticalTab && checkHelper('verticalTab').result)
-		app.classList.add('--ba-vertical-tab');
 	if(config.appearance.autoHidePlayer) app.classList.add('--ba-auto-hide-player');
 	initStyles(config);
 }

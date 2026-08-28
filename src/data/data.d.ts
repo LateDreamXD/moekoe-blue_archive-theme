@@ -10,7 +10,8 @@ type BAConfig = {
 		clickEffect: {
 			/** @default true */
 			enable: boolean;
-			config: import('vue-ba-spark').Options;
+			/** @default {} */
+			config: import('ba-click-fx').BAClickFXConfig;
 		};
 		/** @default true */
 		autoHidePlayer: boolean;
