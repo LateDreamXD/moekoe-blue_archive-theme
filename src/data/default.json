@@ -5,16 +5,17 @@
     "customFonts": true,
     "clickEffect": {
       "enable": true,
-      "config": {}
+      "config": {
+        "scale": 1,
+        "opacity": 1,
+        "themeColor": "#4ca7ff",
+        "clickTimeScale": 1,
+        "trailTimeScale": 1,
+        "trailAlways": false,
+        "maxDpr": 1
+      }
     },
-    "autoHidePlayer": true,
-    "verticalTab": true,
-    "hideMyFavInLib": false,
-    "sidebarMaxWidth": 0
+    "autoHidePlayer": true
   },
-  "plugins": {
-    "simple-download": {
-      "btnInTab": false
-    }
-  }
+  "plugins": {}
 }

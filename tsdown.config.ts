@@ -6,7 +6,7 @@ const shared: import('tsdown').UserConfig = {
 	format: 'iife',
 	platform: 'browser',
 	deps: {
-		alwaysBundle: ['vue', 'vue-ba-spark']
+		alwaysBundle: ['vue', 'ba-click-fx']
 	}
 }
 

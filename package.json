@@ -18,19 +18,21 @@
   },
   "repository": "LateDreamXD/moekoe-blue_archive-theme",
   "license": "MIT",
-  "devDependencies": {
-    "@latedream/moekoe-plugin-utils": "1.0.0-beta.2",
+  "dependencies": {
     "@lucide/vue": "^1.16.0",
     "@picocss/pico": "^2.1.1",
+    "ba-click-fx": "^1.3.1",
+    "vue": "^3.5.34",
+    "vue-router": "^5.0.7"
+  },
+  "devDependencies": {
+    "@latedream/moekoe-plugin-utils": "1.0.0-beta.2",
     "@types/node": "^25.5.0",
     "@vitejs/plugin-vue": "^6.0.6",
     "chrome-types": "^0.1.425",
     "sass-embedded": "^1.99.0",
     "tsdown": "^0.21.7",
     "typescript": "^6.0.2",
-    "vite": "^8.0.10",
-    "vue": "^3.5.34",
-    "vue-ba-spark": "^0.1.1",
-    "vue-router": "^5.0.7"
+    "vite": "^8.0.10"
   }
 }

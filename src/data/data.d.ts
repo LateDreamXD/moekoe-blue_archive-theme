@@ -11,16 +11,10 @@ type BAConfig = {
 			/** @default true */
 			enable: boolean;
 			/** @default {} */
-			config: import('ba-click-fx').BAClickFXConfig;
+			config: Record<string, any> & import('ba-click-fx').BAClickFXConfig;
 		};
 		/** @default true */
 		autoHidePlayer: boolean;
-		/** @default true */
-		verticalTab: boolean;
-		/** @default false */
-		hideMyFavInLib: boolean;
-		/** @default 0 */
-		sidebarMaxWidth: number;
 	}
 	plugins: {
 		[key: string]: {

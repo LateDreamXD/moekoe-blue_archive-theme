@@ -1,3 +1,5 @@
+import clickEffect from '../shared/click-effect';
+
 const basePath = chrome.runtime.getURL('');
 
 const injectCSS = (path: string, id: string) => {
@@ -39,8 +41,6 @@ export const init = (cfg: BAConfig) => {
 	injectStyle(generateStyle(cfg), '--ba-base-style');
 	if(cfg.appearance.customFonts) injectCSS(basePath + 'assets/fonts/index.css', '--ba-fonts');
 	else document.getElementById('--ba-fonts')?.remove();
-	// if(cfg.appearance.clickEffect.enable)
-	// else {
-	// 	document.getElementById('--ba-spark')?.remove();
-	// }
+	if(cfg.appearance.clickEffect.enable) clickEffect.init(cfg.appearance.clickEffect.config);
+	else clickEffect.destroy();
 }

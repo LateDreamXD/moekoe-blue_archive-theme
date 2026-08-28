@@ -26,5 +26,5 @@ The sky blue archive✨
 
 - [《蔚蓝档案》手游官方网站](https://bluearchive-cn.com/) - 提供了主题使用的部分背景图片
 - [kivo.wiki](https://kivo.wiki/) - 提供了主题使用的字体、图标和部分背景图片
-- [vue-ba-spark](https://npmx.dev/package/vue-ba-spark) - 点击特效
+- [ba-click-fx](https://npmx.dev/package/ba-click-fx) - 点击特效
 - [阿珏](https://github.com/iAJue) - 创造了 [MoeKoe Music](https://github.com/iAJue/MoeKoeMusic)
